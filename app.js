@@ -3,7 +3,7 @@
  */
 
 var express = require('express')
-  , github_asana = require('./lib/github-asana');
+  , github_asana = require('./lib/github-asana')
 
 var app = module.exports = express.createServer();
 
@@ -24,8 +24,9 @@ app.configure('production', function(){
 });
 
 // Routes
-
+app.get('/', function(req,res){res.send("All systems go")})
 app.post('/', github_asana.index);
+app.post('/issue-event', github_asana.issueEvent)
 
 var port = process.env.PORT || 3000;
 app.listen(port, function() {

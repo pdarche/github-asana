@@ -27,6 +27,8 @@ app.configure('production', function(){
 app.get('/', function(req,res){res.send("All systems go")})
 app.post('/', github_asana.index);
 app.post('/issue-event', github_asana.issueEvent)
+//app.post('/test', github_asana.testHandler)
+//app.get('/test', github_asana.testEvent)
 
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
